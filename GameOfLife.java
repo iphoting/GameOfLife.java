@@ -16,6 +16,13 @@ public class GameOfLife {
 
 		int[][] grid = parseInputFile();
 		
+		// Shutdown hook for Sig TERM message.
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			public void run() {
+				System.out.println("\nThanks for playing, goodbye...");
+			}
+		});
+
 		for(int g = 0; g <= MAX_ITERATIONS; Thread.sleep(FRAME_RATE), g++) {
 			printClearScreen();
 			printGrid(grid, g);
@@ -90,7 +97,13 @@ public class GameOfLife {
 	public static void printClearScreen() {
 		final String ANSI_CLS = "\u001b[2J";
 
-		System.out.print(ANSI_CLS);
+		if(System.getProperty("os.name").toLowerCase().indexOf( "win" ) >= 0) {
+			// On windows, brain dead terminal. Clear screen with \n instead.
+			System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+		} else {
+			// ANSI terminal, life's good.
+			System.out.print(ANSI_CLS);
+		}
 	}
 
 	public static void printGrid(int[][] input, int generation) {
