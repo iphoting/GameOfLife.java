@@ -23,7 +23,7 @@ public class GameOfLife {
 			}
 		});
 
-		for(int g = 0; g <= MAX_ITERATIONS; Thread.sleep(FRAME_RATE), g++) {
+		for(long g = 0; g <= MAX_ITERATIONS; Thread.sleep(FRAME_RATE), g++) {
 			printClearScreen();
 			printGrid(grid, g);
 			advanceLife(grid);
