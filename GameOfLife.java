@@ -1,4 +1,5 @@
 // Author: Ronald Ip
+// Version: 0.1
 
 // Usage: java GameOfLife [MAX_ITERATIONS]
 // Adjust FRAME_RATE manually.
