@@ -106,7 +106,7 @@ public class GameOfLife {
 		}
 	}
 
-	public static void printGrid(int[][] input, int generation) {
+	public static void printGrid(int[][] input, long generation) {
 		System.out.println("Generation: " + generation);
 		for(int[] r : input) {
 			System.out.print("|");
@@ -131,7 +131,7 @@ public class GameOfLife {
 			int[][] output = new int[lines.size()][lines.get(0).length()];
 
 			for(int i = 0; i < output.length; i++) {
-				for(int j = 0; j < output[0].length; j++) {
+				for(int j = 0; j < output[i].length; j++) {
 					output[i][j] = Integer.parseInt("" + lines.get(i).charAt(j));
 				}
 			}
